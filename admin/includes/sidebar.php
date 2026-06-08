@@ -15,55 +15,74 @@ if (!isset($_SESSION['user_id'])) {
 
 // Get the current page name to highlight the active menu item
 $current_page = basename($_SERVER['PHP_SELF']);
+
+// Determine paths based on current directory
+$in_staff = strpos(str_replace('\\', '/', $_SERVER['PHP_SELF']), '/staff mengement/') !== false;
+$admin_path = $in_staff ? '../admin/' : '';
+$staff_path = $in_staff ? '' : '../staff mengement/';
 ?>
 <aside class="sidebar">
     <div class="sidebar-header">
-        <a href="dashbord.php" class="sidebar-brand">
+        <a href="<?php echo $admin_path; ?>dashbord.php" class="sidebar-brand">
             <i class='bx bxs-party'></i> Admin
         </a>
     </div>
     
     <nav class="sidebar-nav">
-        <a href="dashbord.php" class="nav-item <?php echo ($current_page == 'dashbord.php') ? 'active' : ''; ?>">
+        <a href="<?php echo $admin_path; ?>dashbord.php" class="nav-item <?php echo ($current_page == 'dashbord.php') ? 'active' : ''; ?>">
             <i class='bx bxs-dashboard'></i> Dashboard
         </a>
         
         <div style="margin-top: 1.5rem; margin-bottom: 0.5rem; padding-left: 1rem; font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); font-weight: 700; letter-spacing: 1px;">
             Bookings
         </div>
-        <a href="add_booking.php" class="nav-item <?php echo ($current_page == 'add_booking.php') ? 'active' : ''; ?>">
+        <a href="<?php echo $admin_path; ?>add_booking.php" class="nav-item <?php echo ($current_page == 'add_booking.php') ? 'active' : ''; ?>">
             <i class='bx bx-calendar-plus'></i> New Booking
         </a>
-        <a href="view_bookings.php" class="nav-item <?php echo ($current_page == 'view_bookings.php') ? 'active' : ''; ?>">
+        <a href="<?php echo $admin_path; ?>view_bookings.php" class="nav-item <?php echo ($current_page == 'view_bookings.php') ? 'active' : ''; ?>">
             <i class='bx bx-list-ul'></i> All Bookings
         </a>
         
         <div style="margin-top: 1.5rem; margin-bottom: 0.5rem; padding-left: 1rem; font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); font-weight: 700; letter-spacing: 1px;">
             Customers
         </div>
-        <a href="add_customer.php" class="nav-item <?php echo ($current_page == 'add_customer.php') ? 'active' : ''; ?>">
+        <a href="<?php echo $admin_path; ?>add_customer.php" class="nav-item <?php echo ($current_page == 'add_customer.php') ? 'active' : ''; ?>">
             <i class='bx bx-user-plus'></i> Add Customer
         </a>
-        <a href="view_customers.php" class="nav-item <?php echo ($current_page == 'view_customers.php') ? 'active' : ''; ?>">
+        <a href="<?php echo $admin_path; ?>view_customers.php" class="nav-item <?php echo ($current_page == 'view_customers.php') ? 'active' : ''; ?>">
             <i class='bx bx-group'></i> All Customers
         </a>
         
         <div style="margin-top: 1.5rem; margin-bottom: 0.5rem; padding-left: 1rem; font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); font-weight: 700; letter-spacing: 1px;">
+            Staff Management
+        </div>
+        <a href="<?php echo $staff_path; ?>staff_list.php" class="nav-item <?php echo ($current_page == 'staff_list.php' || $current_page == 'addstaff.php' || $current_page == 'staff_profile.php' || $current_page == 'edit_staff.php') ? 'active' : ''; ?>">
+            <i class='bx bx-id-card'></i> Staff Members
+        </a>
+        <a href="<?php echo $staff_path; ?>attendance.php" class="nav-item <?php echo ($current_page == 'attendance.php' || $current_page == 'attendance_report.php') ? 'active' : ''; ?>">
+            <i class='bx bx-user-check'></i> Attendance
+        </a>
+        <a href="<?php echo $staff_path; ?>salary.php" class="nav-item <?php echo ($current_page == 'salary.php' || $current_page == 'salary_report.php' || $current_page == 'salary_deduction.php' || $current_page == 'staff_advance.php' || $current_page == 'advance_history.php') ? 'active' : ''; ?>">
+            <i class='bx bx-money-withdraw'></i> Payroll
+        </a>
+
+        <div style="margin-top: 1.5rem; margin-bottom: 0.5rem; padding-left: 1rem; font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); font-weight: 700; letter-spacing: 1px;">
             Finance & Reports
         </div>
-        <a href="payment.php" class="nav-item <?php echo ($current_page == 'payment.php') ? 'active' : ''; ?>">
+        <a href="<?php echo $admin_path; ?>payment.php" class="nav-item <?php echo ($current_page == 'payment.php') ? 'active' : ''; ?>">
             <i class='bx bx-wallet'></i> Payments
         </a>
-        <a href="reports.php" class="nav-item <?php echo ($current_page == 'reports.php') ? 'active' : ''; ?>">
+        <a href="<?php echo $admin_path; ?>reports.php" class="nav-item <?php echo ($current_page == 'reports.php') ? 'active' : ''; ?>">
             <i class='bx bx-bar-chart-alt-2'></i> Reports
         </a>
+
         <div style="margin-top: 1.5rem; margin-bottom: 0.5rem; padding-left: 1rem; font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); font-weight: 700; letter-spacing: 1px;">
             Website Content
         </div>
-        <a href="inquiries.php" class="nav-item <?php echo ($current_page == 'inquiries.php') ? 'active' : ''; ?>">
+        <a href="<?php echo $admin_path; ?>inquiries.php" class="nav-item <?php echo ($current_page == 'inquiries.php') ? 'active' : ''; ?>">
             <i class='bx bx-message-square-detail'></i> Inquiries
         </a>
-        <a href="gallery_manage.php" class="nav-item <?php echo ($current_page == 'gallery_manage.php') ? 'active' : ''; ?>">
+        <a href="<?php echo $admin_path; ?>gallery_manage.php" class="nav-item <?php echo ($current_page == 'gallery_manage.php') ? 'active' : ''; ?>">
             <i class='bx bx-images'></i> Gallery
         </a>
         
