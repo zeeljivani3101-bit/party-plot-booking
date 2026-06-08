@@ -37,16 +37,13 @@ session_start();
         
         <div class="emblem-glass animate-fade-up">
             <span class="luxury-accent">The Royal Experience</span>
-            <h1 class="cinematic-title">RATAN FARM</h1>
+            <h1 class="cinematic-title" style="color: #d4af37; text-shadow: 0 0 15px rgba(212, 175, 55, 0.8), 0 0 30px rgba(212, 175, 55, 0.4);">RATAN FARM</h1>
             <p class="cinematic-subtitle">Where timeless elegance meets unforgettable celebrations.</p>
             
             <a href="gallery.php" class="luxury-btn">Enter Venue</a>
         </div>
         
-        <div class="scroll-indicator">
-            <span>Discover</span>
-            <div class="scroll-line"></div>
-        </div>
+
     </section>
 
 </body>

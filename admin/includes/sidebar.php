@@ -20,13 +20,15 @@ $current_page = basename($_SERVER['PHP_SELF']);
 $in_staff = strpos(str_replace('\\', '/', $_SERVER['PHP_SELF']), '/staff mengement/') !== false;
 $in_docs = strpos(str_replace('\\', '/', $_SERVER['PHP_SELF']), '/documents model/') !== false;
 $in_whatsapp = strpos(str_replace('\\', '/', $_SERVER['PHP_SELF']), '/whatsapp model/') !== false;
+$in_events = strpos(str_replace('\\', '/', $_SERVER['PHP_SELF']), '/upcoming_event/') !== false;
 
 // If we are in ANY of the submodules, admin path needs '../admin/'
-$in_submodule = $in_staff || $in_docs || $in_whatsapp;
+$in_submodule = $in_staff || $in_docs || $in_whatsapp || $in_events;
 $admin_path = $in_submodule ? '../admin/' : '';
 $staff_path = $in_staff ? '' : '../staff mengement/';
 $doc_path = $in_docs ? '' : '../documents model/';
 $whatsapp_path = $in_whatsapp ? '' : '../whatsapp model/';
+$event_path = $in_events ? '' : '../upcoming_event/';
 ?>
 <aside class="sidebar">
     <div class="sidebar-header">
@@ -58,6 +60,25 @@ $whatsapp_path = $in_whatsapp ? '' : '../whatsapp model/';
         </a>
         <a href="<?php echo $admin_path; ?>view_customers.php" class="nav-item <?php echo ($current_page == 'view_customers.php') ? 'active' : ''; ?>">
             <i class='bx bx-group'></i> All Customers
+        </a>
+        
+        <div style="margin-top: 1.5rem; margin-bottom: 0.5rem; padding-left: 1rem; font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); font-weight: 700; letter-spacing: 1px;">
+            Events Management
+        </div>
+        <a href="<?php echo $event_path; ?>today_evants.php" class="nav-item <?php echo ($current_page == 'today_evants.php') ? 'active' : ''; ?>">
+            <i class='bx bx-calendar-star'></i> Today's Events
+        </a>
+        <a href="<?php echo $event_path; ?>upcoming_evant.php" class="nav-item <?php echo ($current_page == 'upcoming_evant.php') ? 'active' : ''; ?>">
+            <i class='bx bx-calendar-event'></i> Upcoming Events
+        </a>
+        <a href="<?php echo $event_path; ?>completed_evant.php" class="nav-item <?php echo ($current_page == 'completed_evant.php') ? 'active' : ''; ?>">
+            <i class='bx bx-calendar-check'></i> Completed Events
+        </a>
+        <a href="<?php echo $event_path; ?>cancelled_evant.php" class="nav-item <?php echo ($current_page == 'cancelled_evant.php') ? 'active' : ''; ?>">
+            <i class='bx bx-calendar-x'></i> Cancelled Events
+        </a>
+        <a href="<?php echo $event_path; ?>evant_calender.php" class="nav-item <?php echo ($current_page == 'evant_calender.php') ? 'active' : ''; ?>">
+            <i class='bx bx-calendar'></i> Event Calendar
         </a>
         
         <div style="margin-top: 1.5rem; margin-bottom: 0.5rem; padding-left: 1rem; font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); font-weight: 700; letter-spacing: 1px;">
