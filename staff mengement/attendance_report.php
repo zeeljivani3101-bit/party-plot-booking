@@ -44,7 +44,7 @@ if ($att_res) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Attendance Report | PartyPlot Admin</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="../assets/css/style.css">
     <style>
@@ -90,7 +90,7 @@ if ($att_res) {
                 <p style="color: var(--text-muted);">Monthly summary of staff attendance.</p>
             </div>
             <div>
-                <a href="attendance.php" class="btn btn-primary" style="background: rgba(255,255,255,0.1); box-shadow: none;"><i class='bx bx-check-square'></i> Mark Daily Attendance</a>
+                <a href="attendance.php" class="btn btn-primary" ><i class='bx bx-check-square'></i> Mark Daily Attendance</a>
             </div>
         </div>
 
@@ -101,7 +101,7 @@ if ($att_res) {
                     <label class="form-label" for="month">Select Month</label>
                     <input type="month" id="month" name="month" class="form-control" value="<?php echo htmlspecialchars($month_year); ?>">
                 </div>
-                <button type="submit" class="btn btn-primary" style="background: rgba(255,255,255,0.1); box-shadow: none;"><i class='bx bx-filter'></i> Filter</button>
+                <button type="submit" class="btn btn-primary" ><i class='bx bx-filter'></i> Filter</button>
             </form>
 
             <div style="overflow-x: auto;">

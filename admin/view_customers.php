@@ -41,9 +41,9 @@ $result = $conn->query($sql);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>View Customers | PartyPlot Admin</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/style.css?v=<?php echo time(); ?>">
     <script>
         function confirmDelete(id) {
             if (confirm("Are you sure you want to delete this customer? This will also delete their bookings.")) {
@@ -70,20 +70,20 @@ $result = $conn->query($sql);
 
         <div class="glass" style="padding: 1.5rem;">
             <?php if ($message): ?>
-                <div style="background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.2); color: var(--secondary); padding: 1rem; border-radius: 8px; margin-bottom: 1.5rem;">
+                <div >
                     <i class='bx bx-check-circle'></i> <?php echo $message; ?>
                 </div>
             <?php endif; ?>
             
             <?php if ($error): ?>
-                <div style="background: rgba(239, 68, 68, 0.1); border: 1px solid rgba(239, 68, 68, 0.2); color: #EF4444; padding: 1rem; border-radius: 8px; margin-bottom: 1.5rem;">
+                <div >
                     <i class='bx bx-error-circle'></i> <?php echo $error; ?>
                 </div>
             <?php endif; ?>
 
             <div style="margin-bottom: 1.5rem; display: flex; gap: 1rem;">
                 <input type="text" class="form-control" placeholder="Search customers..." style="max-width: 300px;">
-                <button class="btn btn-primary" style="background: rgba(255,255,255,0.1); box-shadow: none;">Search</button>
+                <button class="btn btn-primary" >Search</button>
             </div>
             
             <div class="table-container">
@@ -106,7 +106,7 @@ $result = $conn->query($sql);
                                     <td><?php echo htmlspecialchars($row['phone']); ?></td>
                                     <td><?php echo $row['total_bookings']; ?></td>
                                     <td>
-                                        <a href="edit_customer.php?id=<?php echo $row['id']; ?>" class="btn btn-sm" style="background: rgba(255,255,255,0.1); margin-right: 0.5rem;" title="Edit"><i class='bx bx-edit-alt'></i></a>
+                                        <a href="edit_customer.php?id=<?php echo $row['id']; ?>" class="btn btn-sm"  title="Edit"><i class='bx bx-edit-alt'></i></a>
                                         <button onclick="confirmDelete(<?php echo $row['id']; ?>)" class="btn btn-sm btn-danger" style="border: none; cursor: pointer;"><i class='bx bx-trash'></i></button>
                                     </td>
                                 </tr>

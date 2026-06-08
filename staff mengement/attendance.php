@@ -67,7 +67,7 @@ if ($att_res) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mark Attendance | PartyPlot Admin</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="../assets/css/style.css">
     <style>
@@ -112,7 +112,7 @@ if ($att_res) {
                 <p style="color: var(--text-muted);">Mark attendance for all active staff members.</p>
             </div>
             <div>
-                <a href="attendance_report.php" class="btn btn-primary" style="background: rgba(255,255,255,0.1); box-shadow: none;"><i class='bx bx-calendar-check'></i> View Report</a>
+                <a href="attendance_report.php" class="btn btn-primary" ><i class='bx bx-calendar-check'></i> View Report</a>
             </div>
         </div>
 
@@ -123,11 +123,11 @@ if ($att_res) {
                     <label class="form-label" for="date">Select Date</label>
                     <input type="date" id="date" name="date" class="form-control" value="<?php echo htmlspecialchars($attendance_date); ?>" max="<?php echo date('Y-m-d'); ?>">
                 </div>
-                <button type="submit" class="btn btn-primary" style="background: rgba(255,255,255,0.1); box-shadow: none;">Change Date</button>
+                <button type="submit" class="btn btn-primary" >Change Date</button>
             </form>
 
             <?php if ($message): ?>
-                <div style="background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.2); color: var(--secondary); padding: 1rem; border-radius: 8px; margin-bottom: 1.5rem;">
+                <div >
                     <i class='bx bx-check-circle'></i> <?php echo $message; ?>
                 </div>
             <?php endif; ?>

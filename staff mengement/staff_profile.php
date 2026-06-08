@@ -50,7 +50,7 @@ $adv_hist = $conn->query("SELECT * FROM staff_advances WHERE staff_id = $id ORDE
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Staff Profile | PartyPlot Admin</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="../assets/css/style.css">
 </head>
@@ -66,8 +66,8 @@ $adv_hist = $conn->query("SELECT * FROM staff_advances WHERE staff_id = $id ORDE
                 <p style="color: var(--text-muted);">Overview of employee performance and details.</p>
             </div>
             <div style="display: flex; gap: 1rem;">
-                <a href="edit_staff.php?id=<?php echo $staff['id']; ?>" class="btn btn-primary" style="background: rgba(255,255,255,0.1); box-shadow: none;"><i class='bx bx-edit-alt'></i> Edit Profile</a>
-                <a href="staff_list.php" class="btn btn-primary" style="background: rgba(255,255,255,0.1); box-shadow: none;"><i class='bx bx-list-ul'></i> All Staff</a>
+                <a href="edit_staff.php?id=<?php echo $staff['id']; ?>" class="btn btn-primary" ><i class='bx bx-edit-alt'></i> Edit Profile</a>
+                <a href="staff_list.php" class="btn btn-primary" ><i class='bx bx-list-ul'></i> All Staff</a>
             </div>
         </div>
 
@@ -82,7 +82,7 @@ $adv_hist = $conn->query("SELECT * FROM staff_advances WHERE staff_id = $id ORDE
                     <h2 style="font-size: 1.5rem; margin-bottom: 0.2rem;"><?php echo htmlspecialchars($staff['name']); ?></h2>
                     <p style="color: var(--primary); font-weight: 500;"><?php echo htmlspecialchars($staff['role']); ?></p>
                     <div style="margin-top: 1rem;">
-                        <span style="padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.8rem; font-weight: 600; <?php echo $staff['status'] == 'Active' ? 'background: rgba(16, 185, 129, 0.1); color: #10B981;' : 'background: rgba(239, 68, 68, 0.1); color: #EF4444;'; ?>">
+                        <span >
                             <?php echo $staff['status']; ?>
                         </span>
                     </div>

@@ -17,9 +17,9 @@ $result = $conn->query($sql);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>View Bookings | PartyPlot Admin</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/style.css?v=<?php echo time(); ?>">
 </head>
 <body>
 
@@ -41,13 +41,13 @@ $result = $conn->query($sql);
         <div class="glass" style="padding: 1.5rem;">
             <div style="margin-bottom: 1.5rem; display: flex; gap: 1rem; flex-wrap: wrap;">
                 <input type="date" class="form-control" style="max-width: 200px;">
-                <select class="form-control" style="max-width: 200px; background: rgba(15, 23, 42, 0.9);">
+                <select class="form-control" >
                     <option value="">All Statuses</option>
                     <option value="Pending">Pending</option>
                     <option value="Confirmed">Confirmed</option>
                     <option value="Completed">Completed</option>
                 </select>
-                <button class="btn btn-primary" style="background: rgba(255,255,255,0.1); box-shadow: none;">Filter</button>
+                <button class="btn btn-primary" >Filter</button>
             </div>
             
             <div class="table-container">
@@ -80,8 +80,8 @@ $result = $conn->query($sql);
                                         <?php endif; ?>
                                     </td>
                                     <td>
-                                        <a href="#" class="btn btn-sm" style="background: rgba(255,255,255,0.1); margin-right: 0.5rem;" title="View Details"><i class='bx bx-show'></i></a>
-                                        <a href="payment.php?booking_id=<?php echo $row['id']; ?>" class="btn btn-sm" style="background: rgba(16, 185, 129, 0.1); color: var(--secondary); margin-right: 0.5rem;" title="Add Payment"><i class='bx bx-rupee'></i></a>
+                                        <a href="#" class="btn btn-sm"  title="View Details"><i class='bx bx-show'></i></a>
+                                        <a href="payment.php?booking_id=<?php echo $row['id']; ?>" class="btn btn-sm"  title="Add Payment"><i class='bx bx-rupee'></i></a>
                                     </td>
                                 </tr>
                             <?php endwhile; ?>

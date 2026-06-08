@@ -38,9 +38,9 @@ $recent_bookings = $conn->query("
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard | PartyPlot</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/style.css?v=<?php echo time(); ?>">
 </head>
 <body>
 
@@ -70,21 +70,21 @@ $recent_bookings = $conn->query("
                 </div>
             </div>
             <div class="stat-card glass">
-                <div class="stat-icon" style="background: rgba(16, 185, 129, 0.1); color: var(--secondary);"><i class='bx bx-rupee'></i></div>
+                <div class="stat-icon" ><i class='bx bx-rupee'></i></div>
                 <div class="stat-info">
                     <p>Total Revenue</p>
                     <h3>₹<?php echo number_format($total_revenue, 2); ?></h3>
                 </div>
             </div>
             <div class="stat-card glass">
-                <div class="stat-icon" style="background: rgba(245, 158, 11, 0.1); color: #F59E0B;"><i class='bx bx-time'></i></div>
+                <div class="stat-icon" ><i class='bx bx-time'></i></div>
                 <div class="stat-info">
                     <p>Pending Bookings</p>
                     <h3><?php echo number_format($pending_payments); ?></h3>
                 </div>
             </div>
             <div class="stat-card glass">
-                <div class="stat-icon" style="background: rgba(236, 72, 153, 0.1); color: #EC4899;"><i class='bx bx-group'></i></div>
+                <div class="stat-icon" ><i class='bx bx-group'></i></div>
                 <div class="stat-info">
                     <p>Active Customers</p>
                     <h3><?php echo number_format($active_customers); ?></h3>

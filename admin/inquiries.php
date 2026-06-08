@@ -31,9 +31,9 @@ $inquiries = $conn->query("SELECT * FROM inquiries ORDER BY created_at DESC");
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inquiries | PartyPlot Admin</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/style.css?v=<?php echo time(); ?>">
 </head>
 <body>
 
@@ -50,7 +50,7 @@ $inquiries = $conn->query("SELECT * FROM inquiries ORDER BY created_at DESC");
 
         <div class="glass" style="padding: 1.5rem;">
             <?php if ($message): ?>
-                <div style="background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.2); color: var(--secondary); padding: 1rem; border-radius: 8px; margin-bottom: 1.5rem;">
+                <div >
                     <i class='bx bx-check-circle'></i> <?php echo $message; ?>
                 </div>
             <?php endif; ?>
@@ -88,7 +88,7 @@ $inquiries = $conn->query("SELECT * FROM inquiries ORDER BY created_at DESC");
                                     </td>
                                     <td>
                                         <div style="display: flex; gap: 0.5rem;">
-                                            <select onchange="window.location.href='inquiries.php?id=<?php echo $row['id']; ?>&mark_status=' + this.value" class="form-control" style="padding: 0.3rem; font-size: 0.75rem; background: rgba(15, 23, 42, 0.9);">
+                                            <select onchange="window.location.href='inquiries.php?id=<?php echo $row['id']; ?>&mark_status=' + this.value" class="form-control" >
                                                 <option value="">Update...</option>
                                                 <option value="New" <?php if($row['status']=='New') echo 'selected'; ?>>New</option>
                                                 <option value="Contacted" <?php if($row['status']=='Contacted') echo 'selected'; ?>>Contacted</option>

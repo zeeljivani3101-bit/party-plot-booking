@@ -43,9 +43,9 @@ $preselect_booking_id = isset($_GET['booking_id']) ? intval($_GET['booking_id'])
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Payments | PartyPlot Admin</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/style.css?v=<?php echo time(); ?>">
 </head>
 <body>
 
@@ -62,13 +62,13 @@ $preselect_booking_id = isset($_GET['booking_id']) ? intval($_GET['booking_id'])
 
         <div class="glass" style="padding: 2rem; max-width: 600px;">
             <?php if ($message): ?>
-                <div style="background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.2); color: var(--secondary); padding: 1rem; border-radius: 8px; margin-bottom: 1.5rem;">
+                <div >
                     <i class='bx bx-check-circle'></i> <?php echo $message; ?>
                 </div>
             <?php endif; ?>
             
             <?php if ($error): ?>
-                <div style="background: rgba(239, 68, 68, 0.1); border: 1px solid rgba(239, 68, 68, 0.2); color: #EF4444; padding: 1rem; border-radius: 8px; margin-bottom: 1.5rem;">
+                <div >
                     <i class='bx bx-error-circle'></i> <?php echo $error; ?>
                 </div>
             <?php endif; ?>
@@ -76,7 +76,7 @@ $preselect_booking_id = isset($_GET['booking_id']) ? intval($_GET['booking_id'])
             <form action="payment.php" method="POST">
                 <div class="form-group">
                     <label class="form-label" for="booking_id">Booking Reference</label>
-                    <select id="booking_id" name="booking_id" class="form-control" required style="background: rgba(15, 23, 42, 0.9);">
+                    <select id="booking_id" name="booking_id" class="form-control" required >
                         <option value="">-- Select Booking --</option>
                         <?php if ($pending_bookings && $pending_bookings->num_rows > 0): ?>
                             <?php while($b = $pending_bookings->fetch_assoc()): ?>
@@ -95,7 +95,7 @@ $preselect_booking_id = isset($_GET['booking_id']) ? intval($_GET['booking_id'])
 
                 <div class="form-group">
                     <label class="form-label" for="payment_method">Payment Method</label>
-                    <select id="payment_method" name="payment_method" class="form-control" required style="background: rgba(15, 23, 42, 0.9);">
+                    <select id="payment_method" name="payment_method" class="form-control" required >
                         <option value="Cash">Cash</option>
                         <option value="Bank Transfer">Bank Transfer / NEFT</option>
                         <option value="UPI">UPI / GPay</option>

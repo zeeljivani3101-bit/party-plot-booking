@@ -18,8 +18,15 @@ $current_page = basename($_SERVER['PHP_SELF']);
 
 // Determine paths based on current directory
 $in_staff = strpos(str_replace('\\', '/', $_SERVER['PHP_SELF']), '/staff mengement/') !== false;
-$admin_path = $in_staff ? '../admin/' : '';
+$in_docs = strpos(str_replace('\\', '/', $_SERVER['PHP_SELF']), '/documents model/') !== false;
+$in_whatsapp = strpos(str_replace('\\', '/', $_SERVER['PHP_SELF']), '/whatsapp model/') !== false;
+
+// If we are in ANY of the submodules, admin path needs '../admin/'
+$in_submodule = $in_staff || $in_docs || $in_whatsapp;
+$admin_path = $in_submodule ? '../admin/' : '';
 $staff_path = $in_staff ? '' : '../staff mengement/';
+$doc_path = $in_docs ? '' : '../documents model/';
+$whatsapp_path = $in_whatsapp ? '' : '../whatsapp model/';
 ?>
 <aside class="sidebar">
     <div class="sidebar-header">
@@ -64,6 +71,26 @@ $staff_path = $in_staff ? '' : '../staff mengement/';
         </a>
         <a href="<?php echo $staff_path; ?>salary.php" class="nav-item <?php echo ($current_page == 'salary.php' || $current_page == 'salary_report.php' || $current_page == 'salary_deduction.php' || $current_page == 'staff_advance.php' || $current_page == 'advance_history.php') ? 'active' : ''; ?>">
             <i class='bx bx-money-withdraw'></i> Payroll
+        </a>
+
+        <div style="margin-top: 1.5rem; margin-bottom: 0.5rem; padding-left: 1rem; font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); font-weight: 700; letter-spacing: 1px;">
+            Documents & Legal
+        </div>
+        <a href="<?php echo $doc_path; ?>document.php" class="nav-item <?php echo ($current_page == 'document.php') ? 'active' : ''; ?>">
+            <i class='bx bx-id-card'></i> KYC Documents
+        </a>
+        <a href="<?php echo $doc_path; ?>agrements.php" class="nav-item <?php echo ($current_page == 'agrements.php') ? 'active' : ''; ?>">
+            <i class='bx bx-file-blank'></i> Agreements
+        </a>
+
+        <div style="margin-top: 1.5rem; margin-bottom: 0.5rem; padding-left: 1rem; font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); font-weight: 700; letter-spacing: 1px;">
+            WhatsApp Hub
+        </div>
+        <a href="<?php echo $whatsapp_path; ?>send_whatsapp.php" class="nav-item <?php echo ($current_page == 'send_whatsapp.php') ? 'active' : ''; ?>">
+            <i class='bx bxl-whatsapp'></i> Send Message
+        </a>
+        <a href="<?php echo $whatsapp_path; ?>whatsapp_templet.php" class="nav-item <?php echo ($current_page == 'whatsapp_templet.php') ? 'active' : ''; ?>">
+            <i class='bx bx-message-square-edit'></i> Message Templates
         </a>
 
         <div style="margin-top: 1.5rem; margin-bottom: 0.5rem; padding-left: 1rem; font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); font-weight: 700; letter-spacing: 1px;">

@@ -106,7 +106,7 @@ if ($staff_id > 0) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Generate Salary | PartyPlot Admin</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="../assets/css/style.css">
     <script>
@@ -134,7 +134,7 @@ if ($staff_id > 0) {
                 <p style="color: var(--text-muted);">Calculate and process monthly salary for staff.</p>
             </div>
             <div>
-                <a href="salary_report.php" class="btn btn-primary" style="background: rgba(255,255,255,0.1); box-shadow: none;"><i class='bx bx-list-ol'></i> Salary Report</a>
+                <a href="salary_report.php" class="btn btn-primary" ><i class='bx bx-list-ol'></i> Salary Report</a>
             </div>
         </div>
 
@@ -149,7 +149,7 @@ if ($staff_id > 0) {
                     </div>
                     <div class="form-group">
                         <label class="form-label" for="staff_id">Select Staff Member</label>
-                        <select id="staff_id" name="staff_id" class="form-control" required style="background: rgba(15, 23, 42, 0.9);">
+                        <select id="staff_id" name="staff_id" class="form-control" required >
                             <option value="">-- Choose Staff --</option>
                             <?php foreach($active_staff as $s): ?>
                                 <option value="<?php echo $s['id']; ?>" <?php echo ($staff_id == $s['id']) ? 'selected' : ''; ?>><?php echo htmlspecialchars($s['name']); ?></option>
@@ -164,13 +164,13 @@ if ($staff_id > 0) {
                 <h3 style="margin-bottom: 1.5rem;">Salary Calculation</h3>
                 
                 <?php if ($message): ?>
-                    <div style="background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.2); color: var(--secondary); padding: 1rem; border-radius: 8px; margin-bottom: 1.5rem;">
+                    <div >
                         <i class='bx bx-check-circle'></i> <?php echo $message; ?>
                     </div>
                 <?php endif; ?>
                 
                 <?php if ($error): ?>
-                    <div style="background: rgba(239, 68, 68, 0.1); border: 1px solid rgba(239, 68, 68, 0.2); color: #EF4444; padding: 1rem; border-radius: 8px; margin-bottom: 1.5rem;">
+                    <div >
                         <i class='bx bx-error-circle'></i> <?php echo $error; ?>
                     </div>
                 <?php endif; ?>
@@ -183,7 +183,7 @@ if ($staff_id > 0) {
                         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem;">
                             <div>
                                 <label class="form-label">Basic Salary (₹)</label>
-                                <input type="number" id="basic_salary" name="basic_salary" class="form-control" step="0.01" value="<?php echo $staff_data['basic_salary']; ?>" readonly style="background: rgba(255,255,255,0.05);">
+                                <input type="number" id="basic_salary" name="basic_salary" class="form-control" step="0.01" value="<?php echo $staff_data['basic_salary']; ?>" readonly >
                             </div>
                             <div>
                                 <label class="form-label">Advances to Deduct (₹)</label>
@@ -204,7 +204,7 @@ if ($staff_id > 0) {
                             </div>
                         </div>
 
-                        <div style="background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.2); padding: 1.5rem; border-radius: 8px; display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+                        <div >
                             <div style="font-size: 1.2rem; font-weight: 600;">Net Salary Payable</div>
                             <div id="display_net" style="font-size: 2rem; font-weight: 700; color: #10B981;">₹<?php echo number_format($net_salary, 2); ?></div>
                             <input type="hidden" id="net_paid" name="net_paid" value="<?php echo $net_salary; ?>">

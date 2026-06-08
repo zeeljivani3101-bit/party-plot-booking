@@ -30,9 +30,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Customer | PartyPlot Admin</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/style.css?v=<?php echo time(); ?>">
 </head>
 <body>
 
@@ -46,19 +46,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <p style="color: var(--text-muted);">Register a new client in the system.</p>
             </div>
             <div>
-                <a href="view_customers.php" class="btn btn-primary" style="background: rgba(255,255,255,0.1); box-shadow: none;">Back to List</a>
+                <a href="view_customers.php" class="btn btn-primary" >Back to List</a>
             </div>
         </div>
 
         <div class="glass" style="padding: 2rem; max-width: 800px;">
             <?php if ($message): ?>
-                <div style="background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.2); color: var(--secondary); padding: 1rem; border-radius: 8px; margin-bottom: 1.5rem;">
+                <div >
                     <i class='bx bx-check-circle'></i> <?php echo $message; ?>
                 </div>
             <?php endif; ?>
             
             <?php if ($error): ?>
-                <div style="background: rgba(239, 68, 68, 0.1); border: 1px solid rgba(239, 68, 68, 0.2); color: #EF4444; padding: 1rem; border-radius: 8px; margin-bottom: 1.5rem;">
+                <div >
                     <i class='bx bx-error-circle'></i> <?php echo $error; ?>
                 </div>
             <?php endif; ?>

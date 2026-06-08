@@ -195,7 +195,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 </div>
                 
                 <?php if ($error): ?>
-                    <div style="background: rgba(239, 68, 68, 0.1); border: 1px solid rgba(239, 68, 68, 0.2); color: #DC2626; padding: 1rem; border-radius: 12px; margin-bottom: 2rem; font-weight: 500; display: flex; align-items: center; gap: 0.5rem;">
+                    <div >
                         <i class='bx bx-error-circle'></i> <?php echo htmlspecialchars($error); ?>
                     </div>
                 <?php endif; ?>

@@ -44,7 +44,7 @@ if ($staff_res) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Issue Advance | PartyPlot Admin</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="../assets/css/style.css">
 </head>
@@ -60,19 +60,19 @@ if ($staff_res) {
                 <p style="color: var(--text-muted);">Record a new advance payment for a staff member.</p>
             </div>
             <div>
-                <a href="advance_history.php" class="btn btn-primary" style="background: rgba(255,255,255,0.1); box-shadow: none;"><i class='bx bx-history'></i> Advance History</a>
+                <a href="advance_history.php" class="btn btn-primary" ><i class='bx bx-history'></i> Advance History</a>
             </div>
         </div>
 
         <div class="glass" style="padding: 2rem; max-width: 600px;">
             <?php if ($message): ?>
-                <div style="background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.2); color: var(--secondary); padding: 1rem; border-radius: 8px; margin-bottom: 1.5rem;">
+                <div >
                     <i class='bx bx-check-circle'></i> <?php echo $message; ?>
                 </div>
             <?php endif; ?>
             
             <?php if ($error): ?>
-                <div style="background: rgba(239, 68, 68, 0.1); border: 1px solid rgba(239, 68, 68, 0.2); color: #EF4444; padding: 1rem; border-radius: 8px; margin-bottom: 1.5rem;">
+                <div >
                     <i class='bx bx-error-circle'></i> <?php echo $error; ?>
                 </div>
             <?php endif; ?>
@@ -80,7 +80,7 @@ if ($staff_res) {
             <form action="staff_advance.php" method="POST">
                 <div class="form-group">
                     <label class="form-label" for="staff_id">Select Staff Member *</label>
-                    <select id="staff_id" name="staff_id" class="form-control" required style="background: rgba(15, 23, 42, 0.9);">
+                    <select id="staff_id" name="staff_id" class="form-control" required >
                         <option value="">-- Choose Staff --</option>
                         <?php foreach($active_staff as $staff): ?>
                             <option value="<?php echo $staff['id']; ?>"><?php echo htmlspecialchars($staff['name']) . ' (' . htmlspecialchars($staff['role']) . ')'; ?></option>

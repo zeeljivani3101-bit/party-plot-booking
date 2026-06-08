@@ -31,7 +31,7 @@ $total_paid = 0;
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Salary Report | PartyPlot Admin</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="../assets/css/style.css">
     <style>
@@ -76,9 +76,9 @@ $total_paid = 0;
                     <label class="form-label" for="month">Filter by Month</label>
                     <input type="month" id="month" name="month" class="form-control" value="<?php echo htmlspecialchars($month_year); ?>">
                 </div>
-                <button type="submit" class="btn btn-primary" style="background: rgba(255,255,255,0.1); box-shadow: none;"><i class='bx bx-filter'></i> Filter</button>
+                <button type="submit" class="btn btn-primary" ><i class='bx bx-filter'></i> Filter</button>
                 <?php if ($month_year != ''): ?>
-                    <a href="salary_report.php" class="btn btn-primary" style="background: rgba(239, 68, 68, 0.1); color: #EF4444; border: 1px solid rgba(239, 68, 68, 0.2); box-shadow: none;">Clear Filter</a>
+                    <a href="salary_report.php" class="btn btn-primary" >Clear Filter</a>
                 <?php endif; ?>
                 <a href="export_salary.php?month=<?php echo urlencode($month_year); ?>" class="btn btn-primary" style="background: #10B981; color: white; margin-left: auto;"><i class='bx bx-spreadsheet'></i> Export to Excel</a>
             </form>
@@ -118,7 +118,7 @@ $total_paid = 0;
                             <?php endwhile; ?>
                             
                             <!-- Summary Row -->
-                            <tr style="background: rgba(255,255,255,0.02);">
+                            <tr >
                                 <td colspan="4" style="text-align: right; font-weight: 600; padding: 1.5rem 1rem;">Total Paid Amount:</td>
                                 <td colspan="2" style="font-weight: 700; color: var(--secondary); font-size: 1.2rem; padding: 1.5rem 1rem;">₹<?php echo number_format($total_paid, 2); ?></td>
                             </tr>
