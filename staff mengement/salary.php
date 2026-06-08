@@ -16,8 +16,8 @@ $month_year = isset($_GET['month']) ? $conn->real_escape_string($_GET['month']) 
 $staff_id = isset($_GET['staff_id']) ? intval($_GET['staff_id']) : 0;
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['generate_salary'])) {
-    $p_staff_id = intval($_POST['staff_id']);
-    $p_month_year = $conn->real_escape_string($_POST['month_year']);
+    $staff_id = intval($_POST['staff_id']);
+    $month_year = $conn->real_escape_string($_POST['month_year']);
     $basic = floatval($_POST['basic_salary']);
     $advance_deduct = floatval($_POST['advance_deduction']);
     $absent_deduct = floatval($_POST['absent_deduction']);
@@ -26,12 +26,29 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['generate_salary'])) {
     $payment_date = date('Y-m-d');
     
     // Check if already paid
-    $check = $conn->query("SELECT id FROM staff_salary WHERE staff_id = $p_staff_id AND month_year = '$p_month_year'");
+    $check = $conn->query("SELECT id FROM staff_salary WHERE staff_id = $staff_id AND month_year = '$month_year'");
     if ($check && $check->num_rows > 0) {
-        $error = "Salary for this month has already been generated for this staff member.";
+        // Update existing
+        $row = $check->fetch_assoc();
+        $salary_id = $row['id'];
+        $sql = "UPDATE staff_salary SET 
+                basic_salary = $basic, 
+                advance_deduction = $advance_deduct, 
+                absent_deduction = $absent_deduct, 
+                other_deductions = $other_deduct, 
+                net_paid = $net_paid, 
+                payment_date = '$payment_date' 
+                WHERE id = $salary_id";
+                
+        if ($conn->query($sql) === TRUE) {
+            $message = "Salary updated successfully!";
+            $staff_id = 0; // reset
+        } else {
+            $error = "Error updating salary: " . $conn->error;
+        }
     } else {
         $sql = "INSERT INTO staff_salary (staff_id, month_year, basic_salary, advance_deduction, absent_deduction, other_deductions, net_paid, payment_date) 
-                VALUES ($p_staff_id, '$p_month_year', $basic, $advance_deduct, $absent_deduct, $other_deduct, $net_paid, '$payment_date')";
+                VALUES ($staff_id, '$month_year', $basic, $advance_deduct, $absent_deduct, $other_deduct, $net_paid, '$payment_date')";
         
         if ($conn->query($sql) === TRUE) {
             $message = "Salary generated and recorded successfully!";

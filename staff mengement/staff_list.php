@@ -91,7 +91,8 @@ $result = $conn->query($sql);
                 <h1 class="page-title">Staff Members</h1>
                 <p style="color: var(--text-muted);">Manage all employees and view their details.</p>
             </div>
-            <div>
+            <div style="display: flex; gap: 1rem;">
+                <a href="export_staff.php" class="btn btn-primary" style="background: #10B981; color: white; box-shadow: none;"><i class='bx bx-spreadsheet'></i> Export to Excel</a>
                 <a href="addstaff.php" class="btn btn-primary"><i class='bx bx-plus'></i> Add New Staff</a>
             </div>
         </div>

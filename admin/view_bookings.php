@@ -32,7 +32,8 @@ $result = $conn->query($sql);
                 <h1 class="page-title">All Bookings</h1>
                 <p style="color: var(--text-muted);">Manage event schedules and booking status.</p>
             </div>
-            <div>
+            <div style="display: flex; gap: 1rem;">
+                <a href="export_bookings.php" class="btn btn-primary" style="background: #10B981; color: white; box-shadow: none;"><i class='bx bx-spreadsheet'></i> Export to Excel</a>
                 <a href="add_booking.php" class="btn btn-primary"><i class='bx bx-plus' style="margin-right: 0.5rem;"></i> New Booking</a>
             </div>
         </div>

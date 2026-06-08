@@ -80,6 +80,7 @@ $total_paid = 0;
                 <?php if ($month_year != ''): ?>
                     <a href="salary_report.php" class="btn btn-primary" style="background: rgba(239, 68, 68, 0.1); color: #EF4444; border: 1px solid rgba(239, 68, 68, 0.2); box-shadow: none;">Clear Filter</a>
                 <?php endif; ?>
+                <a href="export_salary.php?month=<?php echo urlencode($month_year); ?>" class="btn btn-primary" style="background: #10B981; color: white; margin-left: auto;"><i class='bx bx-spreadsheet'></i> Export to Excel</a>
             </form>
 
             <div style="overflow-x: auto;">
